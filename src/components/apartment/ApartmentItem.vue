@@ -1,6 +1,7 @@
 <template>
-  <div class="apartments-item">
+  <div class="apartments-item" @click="log">
     <div class="apartments-item__inner">
+  
       <img :src="imgSrc" alt="" class="apartments-item__photo" />
       <div class="apartments-item__content">
         <p class="apartments-item__description">
@@ -24,8 +25,7 @@ export default {
     name: "ApartmentItem",
     components: {
     StarRating,
-    
-},
+  },
   props: {
     descr: {
       type: String,
@@ -43,6 +43,11 @@ export default {
       type: String,
       default: "",
     },
+  },
+  methods: {
+    log() {
+      console.log('click')
+    }
   },
 };
 </script>

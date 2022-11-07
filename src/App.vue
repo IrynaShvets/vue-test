@@ -1,46 +1,41 @@
 <template>
   <div :id="$style.app">
-    <ApartmentItem 
-    :descr="apartment.descr"
-    :price="apartment.price"
-    :rating="apartment.rating"
-    imgSrc="https://i.gyazo.com/dcd504b0c40bce3b6ebee8221837b066.jpg"
-
-    />
+    <CustomInput v-model="text" />
+    <ApartmentsList :items="apartments">
+      <template v-slot:title> New title </template>
+      <template v-slot:apartment="{apartment}">
+        <ApartmentItem
+        :key="apartment.id"
+        :descr="apartment.descr"
+        :rating="apartment.rating"
+        :imgSrc="apartment.imgUrl"
+        :price="apartment.price"
+        class="apartments-list__item"
+      />
+      </template>
+    </ApartmentsList>
   </div>
 </template>
 
 <script>
-import ApartmentItem from './components/apartment/ApartmentItem';
+import ApartmentsList from "./components/apartment/ApartmentsList";
+import apartments from "./components/apartment/apartments";
+import ApartmentItem from "./components/apartment/ApartmentItem";
+import CustomInput from "./components/shared/CustomInput";
 
 export default {
   name: "App",
   components: {
-    ApartmentItem
+    ApartmentsList,
+    ApartmentItem,
+    CustomInput
   },
   data() {
     return {
-      apartment: {
-        id: '5f689a2c09b16000e9a2f47b',
-        title: 'Delectus et iste.',
-        imgUrl: '../public/img/apartments/apartment-1.jpg',
-        descr:
-          'Debitis similique unde et eligendi sapiente in iure blanditiis distinctio. Cum nihil temporibus qui quam aut. Nesciunt qui eveniet eum quam voluptate numquam.',
-        rating: 3,
-        price: 1667,
-        location: {
-          city: 'Dnipro',
-        },
-        owner: {
-          name: 'Bobbi',
-          phone: '582-740-2926',
-          email: 'Pete_Carter53@hotmail.com',
-        },
-      }
-    }
+      text: '',
+      apartments,
+    };
   },
-  
-  
 };
 </script>
 
