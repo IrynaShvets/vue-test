@@ -1,0 +1,2 @@
+~/.bashrc
+alias vue='winpty vue.cmd'
