@@ -1,5 +1,6 @@
 <template>
   <div :id="$style.app">
+    <CustomSelect :items="['name', 'label', 'salary']" />
     <CustomInput v-model="text" />
     <ApartmentsList :items="apartments">
       <template v-slot:title> New title </template>
@@ -22,13 +23,15 @@ import ApartmentsList from "./components/apartment/ApartmentsList";
 import apartments from "./components/apartment/apartments";
 import ApartmentItem from "./components/apartment/ApartmentItem";
 import CustomInput from "./components/shared/CustomInput";
+import CustomSelect from "./components/shared/CustomSelect";
 
 export default {
   name: "App",
   components: {
     ApartmentsList,
     ApartmentItem,
-    CustomInput
+    CustomInput,
+    CustomSelect
   },
   data() {
     return {
