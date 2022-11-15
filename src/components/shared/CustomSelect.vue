@@ -4,6 +4,7 @@
       v-for="item in formattedItems"
       :key="item.value"
       :value="item.value"
+      :selected="item.selected"
     >
       {{ item.label }}
     </option>
@@ -19,6 +20,7 @@ export default {
       required: true,
     },
   },
+
   computed: {
     listeners() {
       return {
@@ -26,17 +28,16 @@ export default {
         input: (event) => this.$emit("input", event.target.value),
       };
     },
-  },
-  formattedItems() {
-    return this.items.map((item) => {
-      return typeof item === "object" ? item : { value: item, label: item };
-    });
+
+    formattedItems() {
+      return this.items.map((item) => typeof item === "object" ? item : { value: item, label: item });
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-@import '../../assets/scss/variables';
+@import "../../assets/scss/variables";
 .custom-select {
   height: 40px;
   max-width: 220px;

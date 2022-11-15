@@ -5,7 +5,7 @@
       :disabled="loading"
       :class="{ btn: true, 'btn--outlined': outlined }"
     >
-        <slot></slot>
+      <slot></slot>
     </button>
   </template>
  
