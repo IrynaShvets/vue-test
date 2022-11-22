@@ -1,5 +1,6 @@
 import HomePage from "./pages/HomePage";
 import ApartmentPage from "./pages/ApartmentPage";
+import ErrorPage from "./pages/ErrorPage";
 
 import { createRouter, createWebHistory } from "vue-router";
 
@@ -11,9 +12,14 @@ const routes = [
     component: HomePage,
   },
   {
-    path: "/apartment",
+    path: "/apartments/:id",
     name: "apartment",
     component: ApartmentPage
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "error-page",
+    component: ErrorPage
   }
 ];
 
@@ -24,30 +30,3 @@ const router = createRouter({
 
 export default router;
 
-/* const routerHistory = createWebHistory()
-const router = createRouter({
-  history: routerHistory,
-  routes: [{
-    path: "/",
-    component: { template: "<div>Home</div>"}, 
-  }, {
-    path: "/cv",
-    component: { template: "<div>CV</div>"}
-  }]
-}) */
-
-/* const routes = [
-    {
-        path: '/foo',
-        components: Foo
-    },
-    {
-        path: '/bar',
-        components: Bar
-    }
-]
-
-const router = new VueRouter({routes});
-
-export default router;
- */

@@ -8,7 +8,8 @@
           <ApartmentsList v-else :items="filteredApartments">
             <template v-slot:apartment="{ apartment }">
               <ApartmentItem 
-                :key="apartment.id" 
+                :key="apartment.id"
+                :id="apartment.id" 
                 :descr="apartment.descr" 
                 :rating="apartment.rating"
                 :imgSrc="apartment.imgUrl" 
@@ -29,7 +30,7 @@
   import ContainerApp from "../components/shared/ContainerApp";
   
   export default {
-    name: "App",
+    name: "HomePage",
     components: {
       ApartmentsList,
       ApartmentItem,
