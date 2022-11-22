@@ -1,14 +1,14 @@
 <template>
     <button 
-    v-bind="$attrs" 
+     v-bind="$attrs" 
       v-bind:type="type"
-      :disabled="loading"
+     
       :class="{ btn: true, 'btn--outlined': outlined }"
     >
       <slot></slot>
     </button>
   </template>
- 
+ <!--   :disabled="loading" -->
   <script>
   
   export default {

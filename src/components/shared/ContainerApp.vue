@@ -6,11 +6,12 @@
 
 <script>
     export default {
-        name: 'ContainerApartments'
+        name: 'ContainerApp'
     }
 </script>
 
 <style lang="scss" scoped>
+
 .container {
     max-width: 1110px;
     margin: 0 auto;

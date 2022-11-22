@@ -1,5 +1,5 @@
 <template>
-  <div class="apartments-item" @click="log">
+  <div class="apartments-item">
     <div class="apartments-item__inner">
   
       <img :src="imgSrc" alt="" class="apartments-item__photo" />
@@ -14,11 +14,12 @@
         <div class="apartments-item__price">
             UAH {{price}}
         </div>
+        <router-link :to="{name: 'apartment'}" class="apartments-item__link"></router-link>
       </div>
     </div>
   </div>
 </template>
-
+<!-- @click="log" -->
 <script>
 import StarRating from "../StarRating";
 export default {
@@ -45,9 +46,9 @@ export default {
     },
   },
   methods: {
-    log() {
+    /* log() {
       console.log('click')
-    }
+    } */
   },
 };
 </script>

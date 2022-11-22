@@ -1,21 +1,21 @@
 <template>
-  <ContainerApartments>
+  <ContainerApp>
     <slot name="title"></slot>
     <div class="apartments-list">
       <template v-for="apartment in items">
         <slot name="apartment" v-bind:apartment="apartment"></slot>
       </template>
     </div>
-  </ContainerApartments>
+  </ContainerApp>
 </template>
 
 <script>
-import ContainerApartments from "../shared/ContainerApartments";
+import ContainerApp from "../shared/ContainerApp";
 
 export default {
   name: "ApartmentsList",
   components: {
-    ContainerApartments,
+    ContainerApp,
   },
   props: {
     items: {
