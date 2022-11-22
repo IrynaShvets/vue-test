@@ -4,7 +4,6 @@ import ErrorPage from "./pages/ErrorPage";
 
 import { createRouter, createWebHistory } from "vue-router";
 
-
 const routes = [
   {
     path: "/",
@@ -14,13 +13,13 @@ const routes = [
   {
     path: "/apartments/:id",
     name: "apartment",
-    component: ApartmentPage
+    component: ApartmentPage,
   },
   {
     path: "/:pathMatch(.*)*",
     name: "error-page",
-    component: ErrorPage
-  }
+    component: ErrorPage,
+  },
 ];
 
 const router = createRouter({
@@ -29,4 +28,3 @@ const router = createRouter({
 });
 
 export default router;
-

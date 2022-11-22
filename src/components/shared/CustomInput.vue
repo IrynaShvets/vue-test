@@ -2,21 +2,21 @@
     <div class="wrapper-input">
         <input v-bind="listeners" class="custom-input">
     </div>
-    
+
 </template>
 
 <script>
-    export default {
+export default {
     name: 'CustomInput',
     computed: {
         listeners() {
             return {
                 ...this.$attrs,
-                    input: event => this.$emit('input', event.target.value)
-                }
+                input: event => this.$emit('input', event.target.value)
             }
         }
     }
+}
 </script>
 
 <style lang="scss" scoped>

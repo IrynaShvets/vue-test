@@ -3,9 +3,9 @@
 </template>
 
 <script>
-    export default {
-        name: 'LogoApp'
-    }
+export default {
+    name: 'LogoApp'
+}
 </script>
 
 <style lang="scss" scoped>

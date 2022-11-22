@@ -1,7 +1,7 @@
 <template>
     <header class="header">
         <ContainerApp>
-          <LogoApp />
+            <LogoApp />
         </ContainerApp>
     </header>
 </template>
@@ -10,13 +10,13 @@
 import ContainerApp from "../components/shared/ContainerApp";
 import LogoApp from "../components/LogoApp";
 
-    export default {
-        name: 'HeaderApp',
-        components: {
-            ContainerApp,
-            LogoApp
-        }
+export default {
+    name: 'HeaderApp',
+    components: {
+        ContainerApp,
+        LogoApp
     }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -30,5 +30,4 @@ import LogoApp from "../components/LogoApp";
     padding: 16px 0;
     background: $secondary-color;
 }
-
 </style>
