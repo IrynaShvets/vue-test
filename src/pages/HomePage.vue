@@ -24,10 +24,10 @@
 
 <script>
 import ApartmentsList from "../components/apartment/ApartmentsList";
-import apartments from "../components/apartment/apartments";
 import ApartmentItem from "../components/apartment/ApartmentItem";
 import ApartmentsFilterForm from "../components/apartment/ApartmentsFilterForm";
 import ContainerApp from "../components/shared/ContainerApp";
+import { getApartmentsList } from "../services/apartments.service";
 
 export default {
   name: "HomePage",
@@ -40,7 +40,7 @@ export default {
   data() {
     return {
       text: "",
-      apartments,
+      apartments: [],
       filters: {
         city: "",
         price: "",
@@ -51,6 +51,14 @@ export default {
     filteredApartments() {
       return this.filterByCityName(this.filterByPrice(this.apartments));
     },
+  },
+  async created () {
+    try {
+      const {data} = await getApartmentsList();
+      this.apartments = data;
+    } catch(error) {
+      console.error(error);
+    }
   },
   methods: {
     filter({ city, price }) {

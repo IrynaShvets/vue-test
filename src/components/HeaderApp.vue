@@ -1,7 +1,9 @@
 <template>
     <header class="header">
         <ContainerApp>
-            <LogoApp />
+            <router-link to="/">
+                <LogoApp />
+            </router-link>
         </ContainerApp>
     </header>
 </template>

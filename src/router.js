@@ -1,6 +1,7 @@
 import HomePage from "./pages/HomePage";
 import ApartmentPage from "./pages/ApartmentPage";
 import ErrorPage from "./pages/ErrorPage";
+import LoginPage from "./pages/LoginPage";
 
 import { createRouter, createWebHistory } from "vue-router";
 
@@ -14,6 +15,11 @@ const routes = [
     path: "/apartments/:id",
     name: "apartment",
     component: ApartmentPage,
+  },
+  {
+    path: "/login",
+    name: "login-page",
+    component: LoginPage,
   },
   {
     path: "/:pathMatch(.*)*",
