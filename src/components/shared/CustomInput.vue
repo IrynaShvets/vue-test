@@ -3,15 +3,13 @@
     <input
       v-on="listeners"
       v-bind="$attrs"
+      @blur="blurHandler"
+      :value="value"
       class="custom-input"
       :class="!isValid && 'custom-input--error'"
     />
     <span v-if="!isValid" class="custom-input__error">{{ error }}</span>
   </div>
-  <!-- 
- @blur="blurHandler"
-      :value="value"
-     -->
 </template>
 
 <script>
@@ -54,6 +52,8 @@ export default {
   },
   watch: {
     value() {
+      if (this.isFirstInput) return;
+
       this.validate();
     },
   },
@@ -77,9 +77,15 @@ export default {
         return hasPassed;
       });
     },
+    blurHandler() {
+      if (this.isFirstInput) {
+        this.validate();
+      }
+      this.isFirstInput = false;
+    },
     reset() {
-      /* this.isFirstInput = true;
-      this.isValid = true; */
+      this.isFirstInput = true;
+      this.isValid = true;
       this.$emit("input", "");
     },
   },
@@ -91,7 +97,6 @@ export default {
 
 .wrapper-input {
   position: relative;
-  display: inline-flex;
 }
 
 .custom-input {
