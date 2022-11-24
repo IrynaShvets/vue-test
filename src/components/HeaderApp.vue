@@ -30,6 +30,7 @@ export default {
     left: 0;
     width: 100%;
     padding: 16px 0;
+    z-index: 100;
     background: $secondary-color;
 }
 </style>

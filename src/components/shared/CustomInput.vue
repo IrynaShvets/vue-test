@@ -24,7 +24,11 @@ export default {
       isFirstInput: true,
     };
   },
-  /* inject: ['form'], */
+  inject: {
+    form: {
+      default: null,
+    }
+  },
   inheritAttrs: false,
   props: {
     value: {

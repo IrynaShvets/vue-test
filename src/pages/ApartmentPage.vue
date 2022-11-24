@@ -1,14 +1,16 @@
 <template>
     <main class="apartment-page">
-        <ContainerApp>
-            <div v-if="apartment" class="apartment-page__content">
-                <ApartmentsMainInfo :apartment="apartment" />
-                <div class="apartment-page__additional-info">
-                    <ApartmentsOwner :owner="apartment.owner" class="apartment-page__owner" />
-                    <ReviewsList :reviews="review" />
+        <SectionSpacer>
+            <ContainerApp>
+                <div v-if="apartment" class="apartment-page__content">
+                    <ApartmentsMainInfo :apartment="apartment" />
+                    <div class="apartment-page__additional-info">
+                        <ApartmentsOwner :owner="apartment.owner" class="apartment-page__owner" />
+                        <ReviewsList :reviews="review" />
+                    </div>
                 </div>
-            </div>
-        </ContainerApp>
+            </ContainerApp>
+        </SectionSpacer>
     </main>
 </template>
 
@@ -19,6 +21,7 @@ import ApartmentsOwner from "../components/apartment/ApartmentsOwner";
 import ReviewsList from "../components/reviews";
 import review from "../components/reviews/reviews.json";
 import { getApartmentById } from "../services/apartments.service";
+import SectionSpacer from "../components/shared/SectionWithHeaderSpacer";
 
 export default {
     name: 'ApartmentPage',
@@ -26,7 +29,8 @@ export default {
         ContainerApp,
         ApartmentsMainInfo,
         ApartmentsOwner,
-        ReviewsList
+        ReviewsList,
+        SectionSpacer
     },
     data() {
         return {

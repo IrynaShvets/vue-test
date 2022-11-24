@@ -1,23 +1,28 @@
 <template>
-    <CustomForm ref="form" @submit.prevent="handleSubmit">
-        <CustomInput v-model="formData.email" name="email" :rules="emailRules" />
-        <CustomInput v-model="formData.password" name="password" :rules="passwordRules" />
-        <SubmitButton type="submit">Click me</SubmitButton>
-    </CustomForm>
+    <AuthContainer>
+        <h1>Login</h1>
+        <CustomForm ref="form" @submit.prevent="handleSubmit">
+            <CustomInput v-model="formData.email" name="email" :rules="emailRules" />
+            <CustomInput v-model="formData.password" name="password" :rules="passwordRules" />
+            <SubmitButton type="submit">Click me</SubmitButton>
+        </CustomForm>
+    </AuthContainer>
 </template>
 
 <script>
-import CustomForm from "../shared/form";
-import CustomInput from "../shared/CustomInput";
-import SubmitButton from "../shared/SubmitButton";
-import { emailValidation, passwordValidation, isRequired } from "../../utils/validationRules";
+import CustomForm from "../../shared/form";
+import CustomInput from "../../shared/CustomInput";
+import SubmitButton from "../../shared/SubmitButton";
+import { emailValidation, passwordValidation, isRequired } from "../../../utils/validationRules";
+import AuthContainer from "../../auth/AuthContainer";
 
 export default {
     name: 'LoginApp',
     components: {
         CustomForm,
         CustomInput,
-        SubmitButton
+        SubmitButton,
+        AuthContainer
     },
     data() {
         return {

@@ -1,24 +1,20 @@
 <template>
   <main class="homepage">
-    <ContainerApp>
-      <ApartmentsFilterForm class="apartment-filter" @submit="filter" />
-    </ContainerApp>
-    <ContainerApp>
-      <p v-if="!filteredApartments.length">Nothing found</p>
-      <ApartmentsList v-else :items="filteredApartments">
-        <template v-slot:apartment="{ apartment }">
-          <ApartmentItem
-            :key="apartment.id"
-            :id="apartment.id"
-            :descr="apartment.descr"
-            :rating="apartment.rating"
-            :imgSrc="apartment.imgUrl"
-            :price="apartment.price"
-            class="apartments-list__item"
-          />
-        </template>
-      </ApartmentsList>
-    </ContainerApp>
+    <SectionSpacer>
+      <ContainerApp>
+        <ApartmentsFilterForm class="apartment-filter" @submit="filter" />
+      </ContainerApp>
+      <ContainerApp>
+        <p v-if="!filteredApartments.length">Nothing found</p>
+        <ApartmentsList v-else :items="filteredApartments">
+          <template v-slot:apartment="{ apartment }">
+            <ApartmentItem :key="apartment.id" :id="apartment.id" :descr="apartment.descr" :rating="apartment.rating"
+              :imgSrc="apartment.imgUrl" :price="apartment.price" class="apartments-list__item" />
+          </template>
+        </ApartmentsList>
+      </ContainerApp>
+    </SectionSpacer>
+
   </main>
 </template>
 
@@ -28,6 +24,7 @@ import ApartmentItem from "../components/apartment/ApartmentItem";
 import ApartmentsFilterForm from "../components/apartment/ApartmentsFilterForm";
 import ContainerApp from "../components/shared/ContainerApp";
 import { getApartmentsList } from "../services/apartments.service";
+import SectionSpacer from "../components/shared/SectionWithHeaderSpacer";
 
 export default {
   name: "HomePage",
@@ -36,6 +33,7 @@ export default {
     ApartmentItem,
     ApartmentsFilterForm,
     ContainerApp,
+    SectionSpacer
   },
   data() {
     return {
@@ -52,11 +50,11 @@ export default {
       return this.filterByCityName(this.filterByPrice(this.apartments));
     },
   },
-  async created () {
+  async created() {
     try {
-      const {data} = await getApartmentsList();
+      const { data } = await getApartmentsList();
       this.apartments = data;
-    } catch(error) {
+    } catch (error) {
       console.error(error);
     }
   },
